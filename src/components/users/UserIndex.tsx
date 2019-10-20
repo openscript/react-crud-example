@@ -1,9 +1,11 @@
 import { User } from '../../models/User';
 import React from 'react';
+import UserForm from './UserForm';
 
 interface Props {
   users: User[];
-  deleteUser: (user: User) => void; 
+  deleteUser: (user: User) => void;
+  editUser: (user: User) => void;
 }
 
 const UserIndex: React.FC<Props> = (props) => {
@@ -11,32 +13,37 @@ const UserIndex: React.FC<Props> = (props) => {
     return () => {
       props.deleteUser(user);
     }
-  } 
+  }
 
   return (
     <table>
-      <tr>
-        <th>ID</th>
-        <th>Forename</th>
-        <th>Surname</th>
-        <th>Email</th>
-        <th>Birthday</th>
-        <th>Actions</th>
-      </tr>
-      {props.users.map(user => {
-        return (
-          <tr>
-            <td>{user.id}</td>
-            <td>{user.forename}</td>
-            <td>{user.surname}</td>
-            <td>{user.email}</td>
-            <td>{user.birthday ? user.birthday.toISOString() : null}</td>
-            <td>
-              <button onClick={createDeleteAction(user)}>Delete</button>
-            </td>
-          </tr>
-        )
-      })}
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Forename</th>
+          <th>Surname</th>
+          <th>Email</th>
+          <th>Birthday</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {props.users.map(user => {
+          return (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.forename}</td>
+              <td>{user.surname}</td>
+              <td>{user.email}</td>
+              <td>{user.birthday ? user.birthday.toISOString() : null}</td>
+              <td>
+                <UserForm user={user} saveUser={props.editUser} />
+                <button onClick={createDeleteAction(user)}>Delete</button>
+              </td>
+            </tr>
+          )
+        })}
+      </tbody>
     </table>
   )
 }

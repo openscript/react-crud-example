@@ -5,3 +5,9 @@ export interface User {
   email: string;
   birthday?: Date;
 }
+
+export const defaultUser: User = {
+  forename: '',
+  surname: '',
+  email: ''
+}
