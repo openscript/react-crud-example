@@ -6,11 +6,14 @@ interface Props {
 }
 
 const Modal: React.FC<Props> = (props) => {
-  const classNames = `Modal${props.open ? ' Modal-open' : ''}`;
   return (
-    <div className={classNames}>
-      {props.children}
-    </div>
+    <>
+      {props.open ? (
+        <div className='Modal'>
+          {props.children}
+        </div>
+      ) : null}
+    </>
   )
 }
 
