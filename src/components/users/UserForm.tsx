@@ -27,7 +27,7 @@ const UserForm: React.FC<Props> = (props) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     let value: string | Date | null = e.currentTarget.value;
     if(e.currentTarget.type === 'date') {
-      value = e.currentTarget.valueAsDate;
+      value = e.currentTarget.valueAsDate ? e.currentTarget.valueAsDate.toISOString() : null;
     }
     setUser({...user, [e.currentTarget.name]: value});
   }
@@ -44,7 +44,7 @@ const UserForm: React.FC<Props> = (props) => {
           <label htmlFor='email'>Email</label>
           <input type='email' name='email' id='email' onChange={handleChange} defaultValue={user.email} />
           <label htmlFor='birthday'>Birthday</label>
-          <input type='date' name='birthday' id='birthday' onChange={handleChange} defaultValue={user.birthday ? user.birthday.toISOString().substr(0, 10) : undefined} />
+          <input type='date' name='birthday' id='birthday' onChange={handleChange} defaultValue={user.birthday ? user.birthday.substr(0, 10) : undefined} />
           <div>
             <button onClick={toggleModal} type='button'>Cancel</button>
             <input type='submit' value='Save' />

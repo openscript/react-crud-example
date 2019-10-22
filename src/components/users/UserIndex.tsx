@@ -35,7 +35,7 @@ const UserIndex: React.FC<Props> = (props) => {
               <td>{user.forename}</td>
               <td>{user.surname}</td>
               <td>{user.email}</td>
-              <td>{user.birthday ? user.birthday.toISOString() : null}</td>
+              <td>{user.birthday}</td>
               <td>
                 <UserForm user={user} saveUser={props.editUser} />
                 <button onClick={createDeleteAction(user)}>Delete</button>

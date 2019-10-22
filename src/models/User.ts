@@ -3,7 +3,7 @@ export interface User {
   forename: string;
   surname: string;
   email: string;
-  birthday?: Date;
+  birthday?: string;
 }
 
 export const defaultUser: User = {
