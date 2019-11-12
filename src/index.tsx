@@ -6,13 +6,28 @@ import { createStore, Store } from 'redux';
 import { State, initialState } from './models/State';
 import { reducer } from './models/Reducer';
 import { Provider } from 'react-redux';
+import { PersistConfig, persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/es/storage';
+import { PersistGate } from 'redux-persist/integration/react';
 
-const store: Store<State> = createStore(reducer, initialState)
+const persistorConfig: PersistConfig<State> = {
+  key: 'example',
+  version: 1,
+  storage
+}
+
+const persistentReducer = persistReducer(persistorConfig, reducer);
+
+const store: Store<State> = createStore(persistentReducer, initialState)
+
+const persistor = persistStore(store);
 
 const createApp = () => {
   return (
     <Provider store={store}>
-      <App />
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>
   );
 }
