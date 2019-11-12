@@ -1,7 +1,24 @@
 {
   "users": [
-    { "forename": "Max", "surname": "Muster", "email": "max.muster@example.com", "birthday": "1992-11-04T23:00:00.000Z" },
-    { "forename": "Robin", "surname": "Bühler", "email": "robin.buehler@example.com" },
-    { "forename": "Dwayne", "surname": "Johnson", "email": "dwayne.johnson@example.com", "birthday": "1966-12-06T23:00:00.000Z"  }
+    {
+      "id": 1,
+      "forename": "Max",
+      "surname": "Muster",
+      "email": "max.muster@example.com",
+      "birthday": "1992-11-04T23:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "forename": "Robin",
+      "surname": "Bühler",
+      "email": "robin.buehler@example.com"
+    },
+    {
+      "id": 3,
+      "forename": "Dwayne",
+      "surname": "Johnson",
+      "email": "dwayne.johnson@example.com",
+      "birthday": "1966-12-06T23:00:00.000Z"
+    }
   ]
 }
