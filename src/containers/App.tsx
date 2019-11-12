@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { UserProvider } from '../contexts/UserContext';
 import Users from './Users';
 

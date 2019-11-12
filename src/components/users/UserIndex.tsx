@@ -1,6 +1,7 @@
 import { User } from '../../models/User';
 import React from 'react';
 import UserForm from './UserForm';
+import { Button, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
 
 interface Props {
   users: User[];
@@ -16,35 +17,35 @@ const UserIndex: React.FC<Props> = (props) => {
   }
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Forename</th>
-          <th>Surname</th>
-          <th>Email</th>
-          <th>Birthday</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
+    <Table>
+      <TableHead>
+        <TableRow>
+          <TableCell>ID</TableCell>
+          <TableCell>Forename</TableCell>
+          <TableCell>Surname</TableCell>
+          <TableCell>Email</TableCell>
+          <TableCell>BirTableCellday</TableCell>
+          <TableCell>Actions</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
         {props.users.map(user => {
           return (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.forename}</td>
-              <td>{user.surname}</td>
-              <td>{user.email}</td>
-              <td>{user.birthday}</td>
-              <td>
+            <TableRow key={user.id}>
+              <TableCell>{user.id}</TableCell>
+              <TableCell>{user.forename}</TableCell>
+              <TableCell>{user.surname}</TableCell>
+              <TableCell>{user.email}</TableCell>
+              <TableCell>{user.birthday}</TableCell>
+              <TableCell>
                 <UserForm user={user} saveUser={props.editUser} />
-                <button onClick={createDeleteAction(user)}>Delete</button>
-              </td>
-            </tr>
+                <Button onClick={createDeleteAction(user)}>Delete</Button>
+              </TableCell>
+            </TableRow>
           )
         })}
-      </tbody>
-    </table>
+      </TableBody>
+    </Table>
   )
 }
 

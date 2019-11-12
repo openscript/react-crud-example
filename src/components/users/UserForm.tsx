@@ -1,6 +1,18 @@
 import React, { useState, FormEvent, ChangeEvent } from 'react';
-import Modal from '../Modal';
 import { User, defaultUser } from '../../models/User';
+import styled from '@emotion/styled';
+import { Button, TextField, Dialog } from '@material-ui/core';
+
+const CustomForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 30rem;
+
+  input, div {
+    margin-top: 1rem;
+  }
+`
 
 interface Props {
   user?: User;
@@ -34,23 +46,29 @@ const UserForm: React.FC<Props> = (props) => {
 
   return (
     <>
-      <button onClick={toggleModal}>{props.user ? 'Edit' : 'New'}</button>
-      <Modal open={open}>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor='forename'>Forename</label>
-          <input type='text' name='forename' id='forename' onChange={handleChange} defaultValue={user.forename} />
-          <label htmlFor='surname'>Surname</label>
-          <input type='text' name='surname' id='surname' onChange={handleChange} defaultValue={user.surname} />
-          <label htmlFor='email'>Email</label>
-          <input type='email' name='email' id='email' onChange={handleChange} defaultValue={user.email} />
-          <label htmlFor='birthday'>Birthday</label>
-          <input type='date' name='birthday' id='birthday' onChange={handleChange} defaultValue={user.birthday ? user.birthday.substr(0, 10) : undefined} />
+      <Button onClick={toggleModal}>{props.user ? 'Edit' : 'New'}</Button>
+      <Dialog open={open}>
+        <CustomForm onSubmit={handleSubmit}>
+          <TextField label='Forename' type='text' name='forename' id='forename' onChange={handleChange} defaultValue={user.forename} />
+          <TextField label='Surname' type='text' name='surname' id='surname' onChange={handleChange} defaultValue={user.surname} />
+          <TextField label='Email' type='email' name='email' id='email' onChange={handleChange} defaultValue={user.email} />
+          <TextField 
+            label='Birthday' 
+            type='date' 
+            name='birthday' 
+            id='birthday' 
+            onChange={handleChange} 
+            defaultValue={user.birthday ? user.birthday.substr(0, 10) : undefined}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
           <div>
-            <button onClick={toggleModal} type='button'>Cancel</button>
-            <input type='submit' value='Save' />
+            <Button onClick={toggleModal} type='button'>Cancel</Button>
+            <Button type='submit'>Save</Button>
           </div>
-        </form>
-      </Modal>
+        </CustomForm>
+      </Dialog>
     </>
   );
 }

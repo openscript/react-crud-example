@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { User } from '../models/User';
 import UserIndex from '../components/users/UserIndex';
 import UserForm from '../components/users/UserForm';
