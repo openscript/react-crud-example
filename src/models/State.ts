@@ -4,6 +4,6 @@ export interface State {
   users: User[]
 }
 
-export interface initialState {
+export const initialState: State = {
   users: []
 }

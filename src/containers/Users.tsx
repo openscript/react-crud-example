@@ -2,27 +2,20 @@ import React from 'react';
 import { User } from '../models/User';
 import UserIndex from '../components/users/UserIndex';
 import UserForm from '../components/users/UserForm';
-import { useUserContext } from '../contexts/UserContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { State } from '../models/State';
+import { createUser, deleteUser, updateUser } from '../features/UsersFeature';
+import { bindActionCreators } from 'redux';
 
 const Users: React.FC = () => {
-  const [users, userContextDispatch] = useUserContext();
-
-  const deleteUser = (user: User) => {
-    userContextDispatch({type: 'delete', user});
-  }
-
-  const createUser = (user: User) => {
-    userContextDispatch({type: 'create', user});
-  }
-
-  const updateUser = (user: User) => {
-    userContextDispatch({type: 'update', user});
-  }
+  const users = useSelector<State, User[]>(state => state.users);
+  const dispatch = useDispatch();
+  const actions = bindActionCreators({createUser, deleteUser, updateUser}, dispatch);
 
   return (
     <>
-      <UserForm saveUser={createUser} />
-      <UserIndex users={users} deleteUser={deleteUser} editUser={updateUser} />
+      <UserForm saveUser={actions.createUser} />
+      <UserIndex users={users} deleteUser={actions.deleteUser} editUser={actions.updateUser} />
     </>
   );
 }
