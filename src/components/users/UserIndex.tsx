@@ -24,7 +24,7 @@ const UserIndex: React.FC<Props> = (props) => {
           <TableCell>Forename</TableCell>
           <TableCell>Surname</TableCell>
           <TableCell>Email</TableCell>
-          <TableCell>BirTableCellday</TableCell>
+          <TableCell>Birthday</TableCell>
           <TableCell>Actions</TableCell>
         </TableRow>
       </TableHead>
