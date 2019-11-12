@@ -8,10 +8,6 @@ const CustomForm = styled.form`
   flex-direction: column;
   padding: 1rem;
   width: 30rem;
-
-  input, div {
-    margin-top: 1rem;
-  }
 `
 
 interface Props {
