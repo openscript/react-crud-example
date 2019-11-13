@@ -5,20 +5,28 @@
       "forename": "Max",
       "surname": "Muster",
       "email": "max.muster@example.com",
-      "birthday": "1992-11-04T23:00:00.000Z"
+      "birthday": "1992-11-04T23:00:00.000Z",
+      "password": "abcd1234"
     },
     {
       "id": 2,
       "forename": "Robin",
       "surname": "Bühler",
-      "email": "robin.buehler@example.com"
+      "email": "robin.buehler@example.com",
+      "password": "abcd1234"
     },
     {
       "id": 3,
       "forename": "Dwayne",
       "surname": "Johnson",
       "email": "dwayne.johnson@example.com",
-      "birthday": "1966-12-06T23:00:00.000Z"
+      "birthday": "1966-12-06T23:00:00.000Z",
+      "password": "abcd1234"
+    },
+    {
+      "email": "max.muster2@example.com",
+      "password": "$2a$10$P1NVmkG6wgijHxqiZANwU.Y4yDcHP3Qa/IldOKYxUKjDHB3IWdutG",
+      "id": 4
     }
   ]
 }

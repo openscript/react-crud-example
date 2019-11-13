@@ -26,7 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "api": "./node_modules/.bin/json-server --watch ./db.json --port 3001"
+    "api": "./node_modules/.bin/json-server --watch ./db.json --port 3001 -m ./node_modules/json-server-auth --routes ./routes.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
-    "json-server": "^0.15.1"
+    "json-server": "^0.15.1",
+    "json-server-auth": "^1.2.1"
   }
 }
