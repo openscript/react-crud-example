@@ -7,3 +7,7 @@ export interface State {
   router: RouterState
   session: Session
 }
+
+export const initialState: Partial<State> = {
+
+}

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, Store, applyMiddleware, combineReducers } from 'redux';
-import { State } from './models/State';
+import { State, initialState } from './models/State';
 import { reducer } from './models/Reducer';
 import { Provider } from 'react-redux';
 import { PersistConfig, persistReducer, persistStore } from 'redux-persist';
@@ -29,6 +29,7 @@ const persistentReducer = persistReducer(persistorConfig, rootReducer);
 
 const store: Store<State> = createStore(
   persistentReducer,
+  initialState,
   applyMiddleware(thunk, routerMiddleware(history))
 )
 
