@@ -3,4 +3,6 @@ import { ThunkDispatch } from 'redux-thunk';
 import { State } from '../models/State';
 import { AnyAction } from 'redux';
 
-export const useThunkDispatch = () => useDispatch<ThunkDispatch<State, void, AnyAction>>();
+export type ThunkDispatchType = ThunkDispatch<State, void, AnyAction>;
+
+export const useThunkDispatch = () => useDispatch<ThunkDispatchType>();

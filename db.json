@@ -19,6 +19,11 @@
       "surname": "Johnson",
       "email": "dwayne.johnson@example.com",
       "birthday": "1966-12-06T23:00:00.000Z"
+    },
+    {
+      "email": "robin.buehler2@example.com",
+      "password": "$2a$10$aEAWzbbWpR/Bh7rmiSle5uLXsJBiAqNQ2sevUoPFIJuvw7H3j6m9.",
+      "id": 4
     }
   ]
 }

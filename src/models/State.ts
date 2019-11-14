@@ -1,9 +1,9 @@
 import { User } from './User';
+import { Session, initialSession } from './Session';
+import { RouterState } from 'connected-react-router';
 
 export interface State {
   users: User[]
-}
-
-export const initialState: State = {
-  users: []
+  router: RouterState
+  session: Session
 }

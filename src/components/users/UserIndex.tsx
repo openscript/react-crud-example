@@ -28,7 +28,7 @@ const UserIndex: React.FC<Props> = (props) => {
           <TableCell>Actions</TableCell>
         </TableRow>
       </TableHead>
-      <TableBody>
+      <TableBody id="blub">
         {props.users.map(user => {
           return (
             <TableRow key={user.id}>

@@ -1,6 +1,7 @@
 import { usersReducer } from '../features/UsersFeature';
-import { combineReducers } from 'redux';
+import { sessionReducer } from '../features/SessionFeature';
 
-export const reducer = combineReducers({
-  users: usersReducer
-})
+export const reducer = {
+  users: usersReducer,
+  session: sessionReducer
+}

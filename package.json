@@ -6,14 +6,20 @@
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
     "@material-ui/core": "^4.6.1",
+    "@types/history": "^4.7.3",
     "@types/jest": "24.0.22",
     "@types/node": "12.12.7",
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.4",
     "@types/react-redux": "^7.1.5",
+    "@types/react-router-dom": "^5.1.2",
+    "connected-react-router": "^6.5.2",
+    "history": "^4.10.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.3",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
     "redux-persist": "^6.0.0",
@@ -26,7 +32,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "api": "./node_modules/.bin/json-server --watch ./db.json --port 3001"
+    "api": "./node_modules/.bin/json-server --watch ./db.json --port 3001 -m ./node_modules/json-server-auth --routes ./routes.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,6 +50,11 @@
     ]
   },
   "devDependencies": {
-    "json-server": "^0.15.1"
+    "@types/react-test-renderer": "^16.9.1",
+    "@types/redux-mock-store": "^1.0.1",
+    "json-server": "^0.15.1",
+    "json-server-auth": "^1.2.1",
+    "react-test-renderer": "^16.11.0",
+    "redux-mock-store": "^1.5.3"
   }
 }
